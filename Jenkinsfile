@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('clonacion del repositorio') {
             steps {
-            git branch: 'main', url: 'https://github.com/julian-iu/final_igweb.git'
+                git branch: 'main', url: 'https://github.com/julian-iu/final_igweb.git'
             }
     }
 
@@ -25,7 +25,7 @@ pipeline {
 
         stage('despliegue del contenedor docker'){
             steps {
-            script {
+                  script {
                     withCredentials([
                             string(credentialsId: 'MONGO_URI', variable: 'MONGO_URI')
                     ]) {
