@@ -36,10 +36,6 @@ pipeline {
 
     }
 }
-    post {
-        always {
-            //envie un email de confirmacion
-        }
-    }
+    
 }
 }
