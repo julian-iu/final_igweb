@@ -1,0 +1,35 @@
+version: "3.7"
+services:
+  proyecto-monolitica:
+    container_name : proyecto-monolotica
+    image : proyecto-monolitica:v2
+    build :
+      context : .
+    ports :  
+      - "2001"
+    networks :
+      - proyectos-app
+    environment:
+      - MONGO_URI=${MONGO_URI}
+      - PORT=2001
+
+  proyecto-monolitica-2:
+    container_name : proyecto-monolotica-2
+    image : proyecto-monolitica:v2
+    ports :  
+      - "2001"
+    networks :
+      - proyectos-app
+
+  balanceador:
+    container_name : balanceador
+    image : balanceador:v2
+    build :
+      context : ./balanceador/
+    ports :  
+      - "2002:80"
+    networks :
+      - proyectos-app
+
+networks :
+  proyectos-app :
