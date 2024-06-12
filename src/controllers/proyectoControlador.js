@@ -17,7 +17,7 @@ exports.getProyectoById = async (req, res) => {
         const id = req.params.id;
         const Proyecto = await proyecto.findById(id);
         if (!Proyecto) {
-            return res.status(404).json({ message: 'Proyecto no encotrado o inexistente' });
+            return res.status(404).json({ message: 'Proyecto no encotrado o inexistente...' });
         }
         res.json(Proyecto);
     } catch (err) {
